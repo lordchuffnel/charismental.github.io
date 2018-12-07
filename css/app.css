@@ -69,7 +69,7 @@ div.control-container {
   Small only
 */
 @media screen and (max-width: 39.9375em) {
-  div.control-container div.amplitude-play-pause {
+  div.control-container div.play-pause {
     background-size: cover;
     width: 64px;
     height: 64px; }
