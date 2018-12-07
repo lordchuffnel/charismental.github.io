@@ -4,6 +4,12 @@
 /*
   2. Components
 */
+div.radios {
+  margin-top: 10px;
+}
+div.radios label {
+  color: white;
+}
 div.play-pause {
   width: 74px;
   height: 74px;
@@ -16,7 +22,6 @@ div.play-pause.paused {
 div.play-pause.playing {
   background: url("../img/pause.svg");
   background-size: cover; }
-
 
 div.control-container {
   margin-top: 10px;

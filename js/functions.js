@@ -1,4 +1,4 @@
-const vm1 = new Vue({
+new Vue({
   el: "#app",
   data() {
     return {
@@ -8,14 +8,18 @@ const vm1 = new Vue({
       refreshInterval: 10000,
       interval: '',
       url: 'https://radiomv.org/samHTMweb/info.json',
-      stream: {
-        hq: 'http://136.0.16.57:8000/.stream',
-        lq: 'http://136.0.16.57:8004/.stream',
-        mq: 'http://136.0.16.57:8006/.stream'
-      }
     }
   },
   methods: {
+    playPause() {
+      if (audio.paused) {
+        audio.play()
+        this.isPlaying = true
+      } else {
+        audio.pause()
+        this.isPlaying = false
+      }
+    },
     getSongInfo() {
       axios
         .get(this.url)
@@ -35,9 +39,10 @@ const vm1 = new Vue({
   created() {
     this.getSongInfo()
     this.interval = setInterval(this.getSongInfo, this.refreshInterval)
+    window.addEventListener('keydown', (e) => {
+      if (e.key == ' ') {
+        this.playPause()
+      }
+    })
   }
 })
-
-// window.onkeydown = function(e) {
-//   return !(e.keyCode == 32)
-// }

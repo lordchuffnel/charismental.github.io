@@ -18,29 +18,31 @@
 <body>
   <div id="app" class="grid-x grid-padding-x">
     <div class="large-12 medium-12 small-12 cell">
-      <div id="hidden-audio">
-        <audio id="audio" :src="currentStream" controls>
-          Your browser does not support the audio element.
-        </audio>
-        <div class="radios">
-            <input type="radio" id="one" value="http://136.0.16.57:8000/.stream" v-model="currentStream">
-            <label for="one">HQ</label>
-            <input type="radio" id="two" value="http://136.0.16.57:8006/.stream" v-model="currentStream">
-            <label for="two">MQ</label>
-            <input type="radio" id="two" value="http://136.0.16.57:8004/.stream" v-model="currentStream">
-            <label for="two">LQ</label>
-        </div>
-      </div>
       <div id="single-song-player">
         <img :src="picSrc" / class="album-art">
         <div class="bottom-container">
           <div class="control-container">
             <!-- <div class="amplitude-play-pause" amplitude-main-play-pause="true" id="play-pause"></div> -->
-            <div class="play-pause" :class="[isPlaying ? 'playing' : 'paused']" @click="isPlaying = !isPlaying"></div>
+            <div id="play-pause" class="play-pause" @click="playPause" @keyup.space="playPause" :class="[isPlaying ? 'playing' : 'paused']"></div>
             <div class="meta-container">
               <span class="song-name">Title: {{ songInfo.title }}</span>
               <span class="artist">Artist: {{ songInfo.artist }}</span>
               <span class="album">Album: {{ songInfo.album }}</span>
+              <div class="hidden-audio">
+                <audio id="audio" :src="currentStream">
+                  Your browser does not support the audio element.
+                </audio>
+                <div class="radios">
+                    <input type="radio" id="hq" value="http://136.0.16.57:8000/.stream" v-model="currentStream">
+                    <label for="hq">HQ</label>
+                    <input type="radio" id="mq" value="http://136.0.16.57:8006/.stream" v-model="currentStream">
+                    <label for="mq">MQ</label>
+                    <input type="radio" id="lq" value="http://136.0.16.57:8004/.stream" v-model="currentStream">
+                    <label for="lq">LQ</label>
+                    <input type="radio" id="frank" value="http://73.254.166.70/.stream" v-model="currentStream">
+                    <label for="frank">Frank</label>
+                </div>
+              </div>
             </div>
           </div>
         </div>
