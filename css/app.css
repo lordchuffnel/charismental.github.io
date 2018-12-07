@@ -5,6 +5,12 @@
   2. Components
 */
 /* bottom scroller */
+.wrapper {
+  width: 500px;
+  margin: 0;
+  padding: 0;
+  margin: 10px 0;
+}
 .marquee {
   animation: scroll-right-left 8s linear infinite;
 }
@@ -123,7 +129,7 @@ div.control-container {
   3. Layout
 */
 div.bottom-container {
-  background-color: #202136;
+   background: linear-gradient(to bottom right, #202136 0%, rgb(30, 47, 85)50%);
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px; }
 
